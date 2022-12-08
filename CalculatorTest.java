@@ -23,4 +23,11 @@ public class CalculatorTest {
         assertEquals(6, result);
     }
 
+    @Test
+    void supportDifferentDelimiterIfUserWants(){
+        Calculator calculator = new Calculator();
+        int result = calculator.Add("//;\n1;2");
+        assertEquals(3, result);
+    }
+
 }
