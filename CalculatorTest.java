@@ -16,4 +16,11 @@ public class CalculatorTest {
         assertEquals(2, result);
     }
 
+    @Test
+    void checkIfNewLinesAllowedToGetAdded(){
+        Calculator calculator = new Calculator();
+        int result = calculator.Add("1\n2,3");
+        assertEquals(6, result);
+    }
+
 }
