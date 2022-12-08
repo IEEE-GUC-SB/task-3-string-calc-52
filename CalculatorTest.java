@@ -8,5 +8,12 @@ public class CalculatorTest {
         int result = calculator.Add("1,2");
         assertEquals(3, result);
     }
-    
+
+    @Test
+    void checkIfEmptyStringWorksAsZero(){
+        Calculator calculator = new Calculator();
+        int result = calculator.Add(",2");
+        assertEquals(2, result);
+    }
+
 }
