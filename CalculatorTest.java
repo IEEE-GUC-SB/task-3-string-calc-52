@@ -42,4 +42,11 @@ public class CalculatorTest {
      assertTrue(thrown.getMessage().contains("negative numbers not allowed -2 -3"));
     }
 
+    @Test
+    void GreaterThan1000Ignored() throws Exception{
+        Calculator calculator = new Calculator();
+        int result = calculator.Add("2,1000");
+        assertEquals(2, result);
+    }
+
 }
