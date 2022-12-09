@@ -30,4 +30,11 @@ public class CalculatorTest {
         assertEquals(3, result);
     }
 
+    @Test
+    void checkNoNegativeNumbers() throws Exception{
+        Calculator calculator = new Calculator();
+        int result = calculator.Add("1,-2,3");
+        assertEquals(6, result);
+    }
+
 }
