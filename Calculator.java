@@ -6,15 +6,28 @@ import java.util.Arrays;
 public class Calculator {
 
     public int Add(String numbers) throws Exception{
+        String subnumbers = numbers;
         String Exception = null;
         boolean negative = false;
+        int counter = 0;
         String[] array;
         if(numbers.substring(0, 2).equals("//")){
+            String temp = "";
             numbers = numbers.replace("//", "");
-            String temp = "[,\n" + numbers.charAt(0) + "]";
-            array = numbers.split(temp);
+            if(numbers.charAt(0) == '['){
+                temp = "[,\n" + numbers.charAt(1) + "]";
+                for(int i = 0; i < numbers.length(); i++){
+                    counter++;
+                    if(numbers.charAt(i) == ']'){ 
+                        break;
+                    }
+                }
+            }
+            else temp = "[,\n" + numbers.charAt(0) + "]";
+            subnumbers = numbers.substring(counter, numbers.length());
+            array = subnumbers.split(temp);
         }
-        else  array = numbers.split("[,\n]");
+        else  array = subnumbers.split("[,\n[;;;]]");
         int ans = 0;
         for(int i = 0;i<array.length; i++){
             if(!array[i].equals("") && Integer.parseInt(array[i]) < 0){
