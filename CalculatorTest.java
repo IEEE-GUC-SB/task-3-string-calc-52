@@ -33,8 +33,13 @@ public class CalculatorTest {
     @Test
     void checkNoNegativeNumbers() throws Exception{
         Calculator calculator = new Calculator();
-        int result = calculator.Add("1,-2,3");
-        assertEquals(6, result);
+        Exception thrown = assertThrows(
+            Exception.class,
+            () -> calculator.Add("1,-2,-3"),
+            "Expected doThing() to throw, but it didn't"
+        );
+ 
+     assertTrue(thrown.getMessage().contains("negative numbers not allowed -2 -3"));
     }
 
 }

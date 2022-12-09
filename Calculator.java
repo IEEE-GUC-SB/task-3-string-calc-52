@@ -5,7 +5,9 @@ import java.util.Arrays;
  */
 public class Calculator {
 
-    public int Add(String numbers){
+    public int Add(String numbers) throws Exception{
+        String Exception = null;
+        int i = 0;
         String[] array;
         if(numbers.substring(0, 2).equals("//")){
             numbers = numbers.replace("//", "");
@@ -14,9 +16,19 @@ public class Calculator {
         }
         else  array = numbers.split("[,\n]");
         int ans = 0;
-        for(int i = 0;i<array.length; i++){
+        for(;i<array.length; i++){
+            if(Integer.parseInt(array[i]) < 0){
+                Exception = "negative numbers not allowed ";
+                break;
+            }
             ans += array[i].equals("") ? 0 : Integer.parseInt(array[i]);
         }
+        for(;i<array.length; i++){
+            if(Integer.parseInt(array[i]) < 0){
+                Exception += array[i] + " ";
+            }
+        }
+        if(Exception != null) throw new Exception(Exception);
         return ans;
     }
 }
