@@ -3,7 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatorTest {
     @Test
-    void checkAddingNumbersWorks(){
+    void checkAddingNumbersWorks() throws Exception{
         Calculator calculator = new Calculator();
         int result = calculator.Add("1,2");
         assertEquals(3, result);
@@ -17,14 +17,14 @@ public class CalculatorTest {
     }
 
     @Test
-    void checkIfNewLinesAllowedToGetAdded(){
+    void checkIfNewLinesAllowedToGetAdded() throws Exception{
         Calculator calculator = new Calculator();
         int result = calculator.Add("1\n2,3");
         assertEquals(6, result);
     }
 
     @Test
-    void supportDifferentDelimiterIfUserWants(){
+    void supportDifferentDelimiterIfUserWants() throws Exception{
         Calculator calculator = new Calculator();
         int result = calculator.Add("//;\n1;2");
         assertEquals(3, result);
