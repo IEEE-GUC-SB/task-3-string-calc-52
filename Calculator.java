@@ -1,4 +1,3 @@
-import java.util.Arrays;
 
 /**
  * Calculator
@@ -11,23 +10,20 @@ public class Calculator {
         boolean negative = false;
         int counter = 0;
         String[] array;
+        String temp = "";
+
         if(numbers.substring(0, 2).equals("//")){
-            String temp = "";
-            numbers = numbers.replace("//", "");
-            if(numbers.charAt(0) == '['){
-                temp = "[,\n" + numbers.charAt(1) + "]";
-                for(int i = 0; i < numbers.length(); i++){
-                    counter++;
-                    if(numbers.charAt(i) == ']'){ 
-                        break;
-                    }
-                }
-            }
-            else temp = "[,\n" + numbers.charAt(0) + "]";
-            subnumbers = numbers.substring(counter, numbers.length());
-            array = subnumbers.split(temp);
+        for(int i = 0; numbers.charAt(i) != '\n'; i++){
+            if(numbers.charAt(i) != '[' && numbers.charAt(i) != ']') 
+                temp += numbers.charAt(i);
+            counter++;
         }
-        else  array = subnumbers.split("[,\n[;;;]]");
+        subnumbers = numbers.substring(counter, numbers.length());
+    }
+
+        temp = "[,\n" + temp + "]";
+        array = subnumbers.split(temp);
+
         int ans = 0;
         for(int i = 0;i<array.length; i++){
             if(!array[i].equals("") && Integer.parseInt(array[i]) < 0){
