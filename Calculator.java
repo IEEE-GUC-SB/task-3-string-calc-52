@@ -24,7 +24,7 @@ public class Calculator {
                     Exception = "negative numbers not allowed " + array[i] + " ";
                 }
             }
-            else ans += array[i].equals("") ? 0 : Integer.parseInt(array[i]);
+            else ans += array[i].equals("") ? 0 : Integer.parseInt(array[i]) > 1000 ? 0 : Integer.parseInt(array[i]);
         }
         if(Exception != null) throw new Exception(Exception);
         return ans;

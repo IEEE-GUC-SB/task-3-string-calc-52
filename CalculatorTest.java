@@ -45,7 +45,7 @@ public class CalculatorTest {
     @Test
     void GreaterThan1000Ignored() throws Exception{
         Calculator calculator = new Calculator();
-        int result = calculator.Add("2,1000");
+        int result = calculator.Add("2,1001");
         assertEquals(2, result);
     }
 
