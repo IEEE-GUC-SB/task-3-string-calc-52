@@ -49,4 +49,11 @@ public class CalculatorTest {
         assertEquals(2, result);
     }
 
+    @Test
+    void allowsLengthyDelimiters() throws Exception{
+        Calculator calculator = new Calculator();
+        int result = calculator.Add("//[***]\n1***2***3");
+        assertEquals(6, result);
+    }
+
 }
