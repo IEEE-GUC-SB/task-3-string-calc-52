@@ -10,7 +10,7 @@ public class CalculatorTest {
     }
 
     @Test
-    void checkIfEmptyStringWorksAsZero(){
+    void checkIfEmptyStringWorksAsZero() throws Exception{
         Calculator calculator = new Calculator();
         int result = calculator.Add(",2");
         assertEquals(2, result);
